@@ -5,7 +5,7 @@ const app = express()
 const port = 4000
 
 app.use(express.json());
-app.use('/books', bookRouter);
+app.use(bookRouter);
 
 app.listen(port, () => {
   console.log(`API Diversidade em Livros rodando na porta ${port}`)

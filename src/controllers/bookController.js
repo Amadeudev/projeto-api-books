@@ -1,20 +1,14 @@
 import { Book } from "../models/book.js"
 
-export const BookController = (req, res) => {
-  async getRecommendedBooks(req, res) {
-    const recommendedBooks = await Book.getRecommendedBooks();
-    res.json(recommendedBooks);
-  }
+let listBook = []
 
-  async getAuthors(req, res) {
-    const authors = await Book.getAuthors();
-    res.json(authors);
-  }
-
-  async getCategories(req, res) {
-    const categories = await Book.getCategories();
-    res.json(categories);
-  }
+export const createBook = (req, res) => {
+    const { id, title, author, category } = req.body
+    const newBook = new Book(id, title, author, category)
+    listBook.push(newBook)
+    return res.status(201).json({newBook})
 }
 
-export default BookController;
+export const getAllBook = (req, res) => {
+    return res.status(200).json({listBook})
+}
