@@ -13,7 +13,12 @@ export const searchAuthor = (req, res) => {
     const { author } = req.body
     const authors = listBook.filter(books => books.author == author) 
     return res.status(200).json({authors})
+}
 
+export const searchCategory = (req, res) => {
+    const { category } = req.body
+    const categories = listBook.filter(books => books.category == category) 
+    return res.status(200).json({categories})
 }
 
 export const getAllBook = (req, res) => {
