@@ -9,6 +9,13 @@ export const createBook = (req, res) => {
     return res.status(201).json({newBook})
 }
 
+export const searchAuthor = (req, res) => {
+    const { author } = req.body
+    const authors = listBook.filter(books => books.author == author) 
+    return res.status(200).json({authors})
+
+}
+
 export const getAllBook = (req, res) => {
     return res.status(200).json({listBook})
 }
